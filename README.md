@@ -14,7 +14,8 @@ This is a course created by <a href="https://academy.ecdao.org" target="_blank">
 
 ## 😇 Who is this course meant for?
 
-- You want to get a stronger understanding of more advanced Cadence patterns
+- You want to get a stronger understanding of the Cadence smart contract language
+- You want to learn more advanced Cadence patterns & concepts
 - You have completed our <a href="https://github.com/emerald-dao/beginner-cadence-course" target="_blank">Beginner Cadence Course</a> and are looking for more
 
 ## 📚 How does it work?
@@ -29,11 +30,11 @@ Here's an overview:
 
 ## ❓ What do I need ahead of time?
 
-The prerequisit for this course is that you are able to understand practically all Cadence code. This means being able to understand major concepts like resources, account storage, access control, and being able to digest all Cadence syntax.
+The prerequisit for this course is that you are able to *understand* practically all Cadence code. This means being able to understand major concepts like resources, account storage, access control, and being able to digest all Cadence syntax.
 
 If you're looking for a more direct answer, you must have either:
 1. Completed our <a href="https://github.com/emerald-dao/beginner-cadence-course" target="_blank">Beginner Cadence Course</a>
-2. Complete the Entrance Exam, found in [Chapter 1 Day 1](https://github.com/emerald-dao/intermediate-cadence-course/tree/main/chapter1.0/day1)..
+2. Complete the Entrance Exam, found in [Chapter 0](https://github.com/emerald-dao/intermediate-cadence-course/tree/main/chapter0.0)
 
 ## 📁 What are quests?
 
