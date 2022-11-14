@@ -10,10 +10,9 @@ If you took our <a href="https://github.com/emerald-dao/beginner-cadence-course"
 
 <img src="../images/capabilities.PNG" />
 
-Quick review:
-1. `/storage/` is only accessible to the account owner. We use `.save()`, `.load()` and `.borrow()` functions to interact with it.
-2. `/public/` is available to everyone.
-3. `/private/` is available to the account owner and people who the owner gives access to.
+Quick review of capabilities:
+1. `/public/` is available to everyone.
+2. `/private/` is available to the account owner and people who the owner gives access to.
 
 It's totally fine if you don't understand `/private/` capabilities yet. We'll get to that in the next day.
 
@@ -357,9 +356,10 @@ pub contract Record: NonFungibleToken {
         pub let id: UInt64
         pub let songName: String
     
-        init(id: UInt64, songName: String) {
-            self.id = id
+        init(songName: String) {
+            self.id = self.uuid
             self.songName = songName
+            ExampleNFT.totalSupply = ExampleNFT.totalSupply + 1
         }
     }
 
