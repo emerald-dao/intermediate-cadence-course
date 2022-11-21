@@ -131,7 +131,6 @@ However, as we also learned in the last day, this provides no certainty that the
 The way to verify this is with identifiers. We can say...
 
 ```cadence
-import ExampleNFT from 0x01
 import NonFungibleToken from 0x02
 
 pub fun main(user: Address): [UInt64] {
@@ -149,5 +148,7 @@ pub fun main(user: Address): [UInt64] {
 ```
 
 Now, we are protected :)
+
+Notice, by the way, that we didn't even have to import `ExampleNFT`, but we were still able to verify the type of the reference. Pretty interesting... I will leave it to all of you to figure out some cool tricks you can do with this in your own contracts. We may discover more throughout this course.
 
 ## Quests
