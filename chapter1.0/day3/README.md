@@ -197,7 +197,7 @@ pub fun main(user: Address): [UInt64] {
 
 Although we were eventually able to read out ids, hopefully this has shown you how inconvenient poor links are. It requires the consumer (us) to weed our way through interfaces to figure out how to actually get to the data, which should have been very straightforward if done correctly.
 
-And even worse, with the above script, I have no guarantee that the collection I'm reading from is even a `TopShot.Collection`. For all I know, it could be some other random NFT Collection that also implements the `TopShot.MomentCollectionPublic` interface and is linked to the same public path. We will talk more about this in the next day.
+And even worse, with the above script, **I have no guarantee that the collection I'm reading from is even a `TopShot.Collection`.** For all I know, it could be some other random NFT Collection that also implements the `TopShot.MomentCollectionPublic` interface and is linked to the same public path. This could be a very severe bug in our code. We will talk more about this in the next day.
 
 ## Quests
 
