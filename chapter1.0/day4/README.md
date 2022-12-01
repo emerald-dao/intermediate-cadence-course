@@ -126,7 +126,7 @@ pub fun main(user: Address): [UInt64] {
 }
 ```
 
-However, as we also learned in the last day, this provides no certainty that the ids were returning are actually from an `ExampleNFT.Collection`. It could be any resource that implements `NonFungibleToken.CollectionPublic`.
+However, as we also learned in the last day, this provides no certainty that the ids we're returning are actually from an `ExampleNFT.Collection`. It could be any resource that implements `NonFungibleToken.CollectionPublic`.
 
 The way to verify this is with identifiers. We can say...
 
