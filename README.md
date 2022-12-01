@@ -32,9 +32,7 @@ Here's an overview:
 
 The prerequisit for this course is that you are able to *understand* practically all Cadence code. This means being able to understand major concepts like resources, account storage, access control, and being able to digest all Cadence syntax.
 
-If you're looking for a more direct answer, you must have either:
-1. Completed our <a href="https://github.com/emerald-dao/beginner-cadence-course" target="_blank">Beginner Cadence Course</a>
-2. Complete the Entrance Exam, found in [Chapter 0](https://github.com/emerald-dao/intermediate-cadence-course/tree/main/chapter0.0)
+If you're looking for a more direct answer, if you have completed our <a href="https://github.com/emerald-dao/beginner-cadence-course" target="_blank">Beginner Cadence Course</a>, then you are good to go.
 
 ## 📁 What are quests?
 
