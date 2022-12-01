@@ -121,7 +121,6 @@ Now our client can successfully have both pieces of data :)
 Hints:
 - FLOAT's contract address: 0x2d4c3caffbeab845
 - Flovatar's contract address: 0x921ea449dffec68a
-- Flow Token's contract address: 0x1654653399040a61
-- Fungible Token's contract address: 0xf233dcee88fe0abe
+- Find all the core contract's addresses here: https://developers.flow.com/flow/core-contracts
 
 You can use the <a href="https://flow-view-source.com/">Flow View Source</a> to discover contracts and learn how to read from them.
