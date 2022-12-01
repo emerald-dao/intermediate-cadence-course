@@ -312,3 +312,10 @@ pub contract Admin {
 Now, our code is much more efficient, and we only have to handle 1 `NFTMinter` resource instead of storing 3 resources at totally different storage paths.
 
 ## Quests
+
+1. Design your own contracts such that you use at least one `access(account)` function that gets called in a contract within the same account. Explain why you had to use `access(account)`.
+
+2. Starting from this contract: https://flow-view-source.com/mainnet/account/0x921ea449dffec68a/contract/Flovatar
+- Find 1 variable that uses `access(account)`
+- Find 1 function that uses `access(account)`
+- Using the function you found, explain why it uses that access modifier and where it gets called in a different contract in that same account

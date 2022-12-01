@@ -104,3 +104,24 @@ pub struct Data {
 Now our client can successfully have both pieces of data :)
 
 ## Quests
+
+1. Come up with your own script that groups data together.
+
+2. Use a real-world example (on Mainnet) grouping data together.
+
+3. Write a script that returns:
+- a FLOAT NFT's reference
+- FLOAT's total supply
+- a Flovatar NFT's reference
+- Flovatar's total supply
+- Flow Token's total supply
+- a reference to your public `&FlowToken.Vault{FungibleToken.Receiver}`
+- a capability to your public `Capability<&FlowToken.Vault{FungibleToken.Receiver}>`
+
+Hints:
+- FLOAT's contract address: 0x2d4c3caffbeab845
+- Flovatar's contract address: 0x921ea449dffec68a
+- Flow Token's contract address: 0x1654653399040a61
+- Fungible Token's contract address: 0xf233dcee88fe0abe
+
+You can use the <a href="https://flow-view-source.com/">Flow View Source</a> to discover contracts and learn how to read from them.

@@ -152,3 +152,50 @@ Now, we are protected :)
 Notice, by the way, that we didn't even have to import `ExampleNFT`, but we were still able to verify the type of the reference. Pretty interesting... I will leave it to all of you to figure out some cool tricks you can do with this in your own contracts. We may discover more throughout this course.
 
 ## Quests
+
+1. Explain what a resource identifier is.
+
+2. Is it possible for two different resources, that have the same type, to have the same identifier?
+
+3. Is it possible for two different resources, that have a different type, to have the same identifier?
+
+4. Based on the included comments:
+- What is wrong with the following script? 
+- Explain in detail how someone hack this script to always return `true`. 
+- Then, what are two ways we could fix this script to make sure it is safe?
+
+```cadence
+import NonFungibleToken from 0x02
+
+// Return true if the user should be given a prize for holding
+// more than 5 TopShot NFTs
+pub fun main(user: Address): Bool {
+  let collection = getAccount(user).getCapability(/public/Collection)
+              .borrow<&{NonFungibleToken.CollectionPublic}>()
+              ?? panic("Your TopShot Vault is not set up correctly.")
+
+  if collection.getIDs().length > 5 {
+    return true
+  }
+
+  return false
+}
+```
+
+5. Let's say we have the following script on Mainnet...
+
+```cadence
+import FungibleToken from 0xf233dcee88fe0abe
+
+pub fun main(user: Address): UFix64 {
+  let vault = getAccount(user).getCapability(/public/Vault)
+              .borrow<&{FungibleToken.Receiver}>()
+              ?? panic("Your Vault is not set up correctly.")
+
+  return vault.balance
+}
+```
+
+This script was originally written to read the balance of a user's Flow Token Vault, but for some reason we were not able to borrow the full type, so we had to use `&AnyResource` like we did above.
+
+Rewrite this script such that we verify we are reading a balance from a FlowToken Vault. Hint: Use this page to find the Mainnet addresses of the contracts you will need: https://developers.flow.com/flow/core-contracts
