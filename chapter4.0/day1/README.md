@@ -192,3 +192,5 @@ In order:
 2. You may be wondering: "Why do we have to add a force-unwrap operator (`!`) after `self.owner`?" Good question! Can you make a guess as to when `self.owner` would be `nil`?
 
 3. Come up with your own example where you utilize `self.owner!.address`, and explain why you had to use it there.
+
+4. Take a look at the FLOAT contract on Mainnet <a href="https://flow-view-source.com/mainnet/account/0x2d4c3caffbeab845/contract/FLOAT">here</a>. Find an example of `self.owner!.address` and explain what it is doing there (hint: look at the `createEvent` function).
