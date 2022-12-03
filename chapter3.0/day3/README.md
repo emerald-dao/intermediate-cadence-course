@@ -125,11 +125,15 @@ So, why would we use this? Well, what if we wanted to loop over all of the user'
 ```cadence
 import NonFungibleToken from 0x02
 
-pub fun main(user: Address) {
+pub fun main(user: Address): {Type: [UInt64]} {
   let answer: {Type: [UInt64]} = {}
   let authAccount: AuthAccount = getAuthAccount(user)
   
   let iterationFunction = fun (path: StoragePath, type: Type): Bool {
+    // `isSubtype` is a function we can call on a Type to check if its parent
+    // type is what we provide as the `of` parameter. In this case, we're essentially
+    // saying, "if the current type of what we're looking at is a `@NonFungibleToken.Collection`,
+    // then...
     if type.isSubtype(of: Type<@NonFungibleToken.Collection>()) {
         // We can borrow a broader `&NonFungibleToken.Collection` type here because we know
         // the type actually stored here is, in fact, a `@NonFungibleToken.Collection`. We will
@@ -148,3 +152,18 @@ pub fun main(user: Address) {
   return answer
 }
 ```
+
+Please make sure to read the comments I left on the script to get a better understanding of what's happening.
+
+After running this script, we should get a dictionary that maps a NFT's type to an array of all the `id`s a user has for that NFT collection.
+
+## Quests
+
+1. Take the script that we made in today's lesson to iterate over a user's storage paths and get all their NFT ids. Run that script on Mainnet with your address and see what it returns.
+
+2. Take the script that we made in today's lesson to iterate over a user's storage paths and get all their NFT ids. Change this script to instead iterate public paths. A few questions will arise:
+- How do I know if the current iteration is an NFT collection?
+- Once I've figured that out, how do I borrow the collection from the account? (Hint: use `NonFungibleToken.CollectionPublic`)
+- Once I do borrow it, how do I know the collection is *actually* a NFT collection, and not a random resource that implements `NonFungibleToken.CollectionPublic`?
+
+> Warning: Quest #2 is going to be difficult. It requires a lot of thinking on your end. Use concepts you learned throughout this course to help you complete this.
