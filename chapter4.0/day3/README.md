@@ -79,6 +79,14 @@ As you can see, the difference is that we use the prepare phase to access everyt
 
 The execute phase then takes those local variables and performs actions on them.
 
+## Who Do This?
+
+Of course, there are reasons to do this besides looking cool.
+
+As developers, it is our absolutely duty to make code as readable and clear as possible. This is not only for ourselves and other developers, but for users to be able to develop trust with our applications and feel safe. Asking users to manipulate their assets by trusting our code is a major ask that often gets taken for granted. If at any point we can make code a little cleaner, and a little easier to track, we can help users be safe in an increasingly complicated technical world.
+
+By structuring our code properly, users will be able to worry about only the prepare phase to see what is being accessed on their account. They can completely ignore the execute phase (and all the code with it) if they notice no scary references are being borrowed from their account in the prepare phase.
+
 ## Quests
 
 1. Using the <a href="https://flow-view-source.com/mainnet/account/0x2d4c3caffbeab845/contract/FLOAT">FLOAT contract</a>, write a properly structured transaction on Mainnet that transfers a FLOAT with a specific `id` to a `recipient`.
