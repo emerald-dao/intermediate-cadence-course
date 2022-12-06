@@ -39,7 +39,7 @@ pub fun main(user: Address) {
 
 ## Optional Binding
 
-Optional Binding is another really useful strategy we can use with optionals. Essentially, it lets you enter an if statement depending on whether or not a value is nil, and unwraps it:
+Optional Binding is another really useful strategy we can use with optionals. Using a new `if let` syntax, it lets you enter an if statement depending on whether or not a value is nil, and unwraps it if so:
 
 ```cadence
 let var1: Int? = nil
@@ -56,7 +56,105 @@ if let var2 = var1 {
   // it will go in here, and `var2` will now have 
   // type `Int`, not `Int?`. So it unwrapped the
   // optional.
+  //
+  // `var2` = 2
 } else {
   // it never makes it in here
 }
 ```
+
+The above is just a simple example of what optional binding is doing. However, there are two main use cases I use optional binding for:
+1. Indexing into a dictionary
+
+```cadence
+let dictionary: {String: Int} = {"One": 1, "Two": 2, "Three": 3}
+if let number = dictionary["One"] { 
+  // dictionary["One"] is a `Int?` type, 
+  //and it gets unwrapped into `number` 
+  //which has type `Int`
+  log(number) // 1
+}
+```
+
+2. Borrowing from someone's account storage
+
+```cadence
+let token: @ExampleNFT.NFT <- create NFT()
+if let collection = getAccount(0x01).getCapability(/public/Collection).borrow<&ExampleNFT.Collection{NonFungibleToken.CollectionPublic}>() {
+  // the user's collection is set up
+  collection.deposit(token: token)
+  return nil
+}
+// the collection was not set up because we didn't return in the if statement
+return <- token
+```
+
+## Optional Chaining
+
+Optional chaining is actually quite complicated to explain, but I will do my best here. Basically, optional chaining is useful for when we want to access a variable on a certain object that is an optional type, but don't want to panic if the object is `nil`.
+
+For example:
+
+```cadence
+pub struct Test {
+  pub let id: Int
+
+  init() {
+    self.id = 1
+  }
+}
+
+pub fun main() {
+  let test1: Test? = Test()
+  let test2: Test? = nil
+
+  let number1 = test1.id // ERROR: "Cannot access `id` on `Test?` type
+
+  let number2: Int = test1!.id // 1
+  let number3 = test2!.id // PANIC on the force-unwrap of an optional
+
+  // Using Optional Chaining
+  let number4: Int? = test1?.id // 1
+  let number5: Int? = test2?.id // nil
+}
+```
+
+Hopefully this script allows you to see the difference. When we have a struct or resource (in this case a struct `Test`), and want to access a field on it, we can actually use the `?` operator to *attempt to access the field* without `panic`-ing. If the struct is `nil`, it will simply return `nil`. If not, it will return the underlying value as an optional type.
+
+## Conditional Operator
+
+This one is actually quite easy, and is popular in many languages like Javascript.
+
+Sometimes, we write code like this:
+
+```cadence
+var var1 = "one"
+var var2 = 0
+
+if (var1 == "one") {
+  var2 = 1
+} else if (var1 == "two") {
+  var2 = 2
+} else {
+  var2 = 3
+}
+```
+
+It's a really silly example, but is actually pretty annoying to write. Instead, we can use a "conditional operator," often written with a bunch of `?` and `:` symbols, like this:
+
+```cadence
+var var1 = "one"
+var var2 = var1 == "one" ? 1 : var1 == "two" ? 2 : 3
+```
+
+These two mean the exact same thing. When you use conditional operators, it usually goes something like:
+
+```
+(boolean statement #1) ? 
+  (if [boolean statement #1], this) : 
+    (else, boolean statement #2) ? 
+      (if [boolean statement #2], this) : 
+        ...
+```
+
+## Quests
