@@ -121,7 +121,7 @@ pub fun main() {
 
 Hopefully this script allows you to see the difference. When we have a struct or resource (in this case a struct `Test`), and want to access a field on it, we can actually use the `?` operator to *attempt to access the field* without `panic`-ing. If the struct is `nil`, it will simply return `nil`. If not, it will return the underlying value as an optional type.
 
-## Conditional Operator
+## Conditional (Ternary) Operator
 
 This one is actually quite easy, and is popular in many languages like Javascript.
 
@@ -157,4 +157,90 @@ These two mean the exact same thing. When you use conditional operators, it usua
         ...
 ```
 
+> For a potentially better explanation, see <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator#syntax">here</a>.
+
 ## Quests
+
+1. Assuming the user's collection is set up properly, what will be returned from this function?
+
+```cadence
+import ExampleNFT from 0x01
+import NonFungibleToken from 0x02
+
+pub fun main(): [UInt64]? {
+  let token: @ExampleNFT.NFT <- create NFT()
+  if let collection = getAccount(0x01).getCapability(/public/Collection).borrow<&ExampleNFT.Collection{NonFungibleToken.CollectionPublic}>() {
+    return collection.getIDs()
+  }
+  return nil
+}
+```
+
+2. Assuming the user's collection was **not** set up properly, what will be returned from this function?
+
+```cadence
+import ExampleNFT from 0x01
+import NonFungibleToken from 0x02
+
+pub fun main(): [UInt64]? {
+  let token: @ExampleNFT.NFT <- create NFT()
+  if let collection = getAccount(0x01).getCapability(/public/Collection).borrow<&ExampleNFT.Collection{NonFungibleToken.CollectionPublic}>() {
+    return collection.getIDs()
+  } else {
+    return []
+  }
+  return nil
+}
+```
+
+3. Assuming the user's collection was **not** set up properly, what will be returned from this function?
+
+```cadence
+import ExampleNFT from 0x01
+import NonFungibleToken from 0x02
+
+pub fun main(): [UInt64]? {
+  let token: @ExampleNFT.NFT <- create NFT()
+  if let collection = getAccount(0x01).getCapability(/public/Collection).borrow<&ExampleNFT.Collection{NonFungibleToken.CollectionPublic}>() {
+    return collection.getIDs()
+  }
+  return nil
+}
+```
+
+4. What are the two outcomes that could happen when I run this script? Explain each.
+
+```cadence
+import ExampleNFT from 0x01
+import NonFungibleToken from 0x02
+
+pub fun main(user: Address): [UInt64] {
+  let collection = getAccount(user).getCapability(/public/Collection).borrow<&ExampleNFT.Collection{NonFungibleToken.CollectionPublic}>()
+
+  return collection!.getIDs()
+}
+```
+
+5. What is wrong with the below script? 
+- a) Please fix it (you are not allowed to modify this line: `return collection?.getIDs()`).
+- b) After you fix it, what are the two possible outcomes that could happen when you run the script? Explain each.
+
+```cadence
+import ExampleNFT from 0x01
+import NonFungibleToken from 0x02
+
+pub fun main(user: Address): [UInt64] {
+  let collection = getAccount(user).getCapability(/public/Collection).borrow<&ExampleNFT.Collection{NonFungibleToken.CollectionPublic}>()
+
+  return collection?.getIDs()
+}
+```
+
+6. Write the below code in `if-else` format instead.
+
+```cadence
+let vault = getAccount(user).getCapability(/public/Vault).borrow<&FlowToken.Vault{FungibleToken.Receiver}>()!
+var status = vault.balance >= 10000 ? "Flow Legend" : vault.balance < 10 ? "Needs More" : vault.balance > 5000 ? "Flow Believer" : "Unknown"
+```
+
+7. Explain a potential benefit of using conditional chaining as opposed to force unwrapping an optional.
