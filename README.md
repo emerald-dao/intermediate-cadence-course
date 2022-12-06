@@ -36,7 +36,7 @@ If you're looking for a more direct answer, if you have completed our <a href="h
 
 ## 📁 What are quests?
 
-<img src="./images/quests.png" alt="drawing" width="300"/>
+<img src="https://i.imgur.com/x3fTmmu.png" alt="drawing" width="300"/>
 
 Quests are like homework assignments. There are quests for every day of content. They will test your understanding of the concepts that are in that day's content. 
 
