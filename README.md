@@ -8,7 +8,7 @@ This is a course created by <a href="https://academy.ecdao.org" target="_blank">
 
 - Master Capability-based control
 - Understand current issues with poor capabilitly links and how to work through them
-- Learn how to handle implement Admin control
+- Learn how to implement Admin control
 - Improve the efficiency and readability of transaction/script code
 - Helpful patterns to control permissions and improve efficiencies in a smart contract
 - Miscellaneous information like handling time in Cadence
