@@ -6,11 +6,12 @@ This is a course created by <a href="https://academy.ecdao.org" target="_blank">
 
 ## 🚀 What will I know by the end?
 
--
-- 
--
--
--
+- Master Capability-based control
+- Understand current issues with poor capabilitly links and how to work through them
+- Learn how to handle implement Admin control
+- Improve the efficiency and readability of transaction/script code
+- Helpful patterns to control permissions and improve efficiencies in a smart contract
+- Miscellaneous information like handling time in Cadence
 
 ## 😇 Who is this course meant for?
 
@@ -30,7 +31,10 @@ Here's an overview:
 
 ## ❓ What do I need ahead of time?
 
-The prerequisit for this course is that you are able to *understand* practically all Cadence code. This means being able to understand major concepts like resources, account storage, access control, and being able to digest all Cadence syntax.
+The prerequisit for this course is that you are able to understand and write practically all major concepts of Cadence code, such as: 
+1. Resources
+2. Account Storage
+3. Access Control
 
 If you're looking for a more direct answer, if you have completed our <a href="https://github.com/emerald-dao/beginner-cadence-course" target="_blank">Beginner Cadence Course</a>, then you are good to go.
 
@@ -52,7 +56,7 @@ Every day *also* has a quiz associated with it to test your knowledge. It is a s
 
 ## 🇺🇸 Multilingual Support
 
-This course is currently available in English (README.md), Chinese (README_ZH.md), Spanish (README_ES.md), and Russian (README_RU.md). Under each day of content, you will see a matching README file for your language of choice.
+This course is currently available in English only.
 
 ## 🚗 When can I start?
 
@@ -62,7 +66,7 @@ You can start the first day [here](https://github.com/emerald-dao/intermediate-c
 
 ## 💚 Emerald Academy
 
-This course was created by <a href="https://academy.ecdao.org" target="_blank">Emerald Academy</a>, which is a series of educational resources & bootcamps created by your *best* friends at <a href="https://ecdao.org/" target="_blank">Emerald City</a>. If you're interested in more educational content or getting involved in the broader Emerald City community, come join our <a href="https://discord.gg/emeraldcity" target="_blank">Discord</a> :)
+This course was created by <a href="https://academy.ecdao.org" target="_blank">Emerald Academy</a>, which is a series of educational resources & bootcamps created by your *best* friends at <a href="https://ecdao.org/" target="_blank">Emerald City</a>. If you're interested in more educational content or getting involved in the broader Emerald Academy community, come join our <a href="https://discord.gg/wjA875sMjV" target="_blank">Discord</a> :)
 
 ## 🏁 Ending Remarks
 
