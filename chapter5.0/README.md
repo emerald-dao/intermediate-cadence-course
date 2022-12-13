@@ -38,14 +38,36 @@ Modify your transactions/scripts from Part 2 as such:
 
 - SETUP: Ensure that this transaction first identifies if the user's vault is already set up poorly, and subsequently fix it if so. If it's not already set up, then simply set it up.
 - READ BALANCE:
-  - Ensure that your script work with vaults that are not set up correctly, and subsequently fix them so that it will always return a balance without fail.
-  - Make sure that the balance being returned is from a vault that is guaranteed to be your token's type, and not some random vault that implements the `FungibleToken` interface
+  - Ensure that your script work with vaults that are not set up correctly, and subsequently (temporarily) fix them so that it will always return a balance without fail.
+  - Make sure that the balance being returned is from a vault that is guaranteed to be your token's type, and not some random vault that implements the `FungibleToken` interface.
   - Using comments in the script, explain 2 ways in which you can guarantee that the above requirement is true. One way must be using resource identifiers.
 
 ## Part 4
 
 a) Modify your token contract so that the Admin is allowed to withdraw tokens from a user's Vault at any time, and then in the same function, deposit them an equivalent amount of $FLOW tokens. *HINT: This will require more than simply adding a function.*
 
-b) Write a transaction (that is only signed by the Admin) that executes part a).
+b) Write a transaction (that is only signed by the Admin) that executes section a).
 
-c) 
+## Part 5
+
+a) Write a script that returns the balance of the user's $FLOW vault, and your custom vault. Make it organized so the client can easily read it.
+
+b) Write a script that neatly returns (at a minimum) the resource identifier and balance of all the (official) Fungible Token vaults that the user has in their account storage. You can be creative in whatever other information you want to return.
+
+## Part 6
+
+a) Write a second contract, `Swap`, that allows users deposit $FLOW and receive your custom token in return. The amount of tokens the user should get in return is `2*(THE TIME SINCE THEY LAST SWAPPED)`. 
+
+b) In the swapping function, make sure to prove who the person is that is attempting a swap. In other words, make sure someone couldn't swap for you. You must implement this function two ways:
+  - Using a custom resource you define to represent identity, and passing in a `@FlowToken.Vault` as an argument for the payment.
+  - Using a reference to the user's Flow Token vault that proves only they could pass such a reference in, and subsequently getting the address of the owner from that reference.
+
+## Part 7
+
+a) Ensure all transactions are architected properly, as seen in Chapter 4 Day 3.
+
+## Conclusion
+
+That's it, folks! Do a little happy dance and pat your self on the back. 
+
+I mean it. Don't just read it, do it! I'm waiting...
