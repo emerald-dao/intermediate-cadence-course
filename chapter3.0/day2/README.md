@@ -81,5 +81,41 @@ Pretty cool, right?! But remember: **the user's collection will still be poorly 
 
 Of course, since we have the `AuthAccount`, we can find any data we want inside a user's account.
 
-Let's say we have 
+Let's say there is an NFT Contract in which the `CollectionPublic` interface that the `Collection` resource implements allows you to borrow a `&NonFungibleToken.NFT` type by calling the `borrowNFT` function (the standard function that every Collection has). However, it does not allow you to borrow a full `&NFT` reference using the `borrowFullNFT` function (a custom function I just made up).
 
+Well, we can still fetch the `&NFT` type by using `AuthAccount`:
+
+```cadence
+import ExampleNFT from 0x01
+
+pub fun main(user: Address, id: UInt64): &ExampleNFT.NFT {
+  // Fetch AuthAccount
+  let account: AuthAccount = getAuthAccount(user)
+
+  // Borrow directly from storage
+  let collection = account.borrow<&ExampleNFT.NFT>(from: /storage/Collection)
+              ?? panic("Your ExampleNFT Collection is not set up correctly.")
+
+  // Not restricted by `CollectionPublic` interface, so can call this custom function.
+  return collection.borrowFullNFT(id: id)!
+}
+```
+
+## Quests
+
+1. Let's say there exists a custom fungible token, $JACOB, that exists in a `JacobToken` contract. It is an official fungible token contract, so it implements the `FungibleToken` contract defined <a href="https://flow-view-source.com/mainnet/account/0xf233dcee88fe0abe/contract/FungibleToken">here</a>. We want to run a script to read the balance of someone's Vault, but it doesn't seem to be working:
+
+```cadence
+import JacobToken from 0x01
+import FungibleToken from 0x02
+
+pub fun main(user: Address): UFix64 {
+  let vault = getAccount(user).getCapability(/public/JacobTokenBalance)
+          .borrow<&JacobToken.Vault{FungibleToken.Balance}>()
+              ?? panic("Your JacobToken Vault was not set up properly.")
+
+  return vault.balance
+}
+```
+
+Every time we run the script, it panics and says: "Your JacobToken Vault was not set up properly." Assuming the public path is correct, change this script to be able to read the balance by working around the poor link.
