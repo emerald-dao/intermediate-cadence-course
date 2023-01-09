@@ -48,12 +48,6 @@ Quests are like homework assignments. There are quests for every day of content.
 
 When you finish a quest, please store all your quests together. Then, when you want them to be reviewed, submit them in the #quest-submissions channel inside the [Emerald Academy Discord](https://discord.gg/wjA875sMjV) and our instructors will review them.
 
-## 📝 Quizzes
-
-Every day *also* has a quiz associated with it to test your knowledge. It is a simple Google Form you can fill out to test your understanding for that day's content.
-
-*All of these quizzes are entirely thanks to FrankenSense. Thank you for being an absolute legend!*
-
 ## 🇺🇸 Multilingual Support
 
 This course is currently available in English only.
