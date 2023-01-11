@@ -359,7 +359,7 @@ pub contract Record: NonFungibleToken {
         init(songName: String) {
             self.id = self.uuid
             self.songName = songName
-            ExampleNFT.totalSupply = ExampleNFT.totalSupply + 1
+            Record.totalSupply = Record.totalSupply + 1
         }
     }
 
@@ -386,8 +386,8 @@ pub contract Record: NonFungibleToken {
 
         pub fun deposit(token: @NonFungibleToken.NFT) {
             let token <- token as! @Record.NFT
-            emit Deposit(id: id, to: self.owner?.address)
-            self.ownedNFTs[id] <-! token
+            emit Deposit(id: token.id, to: self.owner?.address)
+            self.ownedNFTs[token.id] <-! token
         }
 
         pub fun getIDs(): [UInt64] {
@@ -420,8 +420,8 @@ pub contract Record: NonFungibleToken {
         return <- create Collection()
     }
 
-    pub fun createRecord(songName: String): @Record {
-      return <- create Record(songName: songName)
+    pub fun createRecord(songName: String): @Record.NFT {
+      return <- create Record.NFT(songName: songName)
     }
 
     init() {
@@ -429,6 +429,7 @@ pub contract Record: NonFungibleToken {
 
         self.CollectionStoragePath = /storage/RecordCollection
         self.CollectionPublicPath = /public/RecordCollection
+        self.MinterStoragePath = /storage/Minter
 
         emit ContractInitialized()
     }
