@@ -1,4 +1,4 @@
-# Chapter 3 Day 5 - Borrowing Contracts
+# Chapter 2 Day 3 - Borrowing Contracts
 
 Heyo! This lesson will be pretty short, but it is a very new feature of Cadence that I think is pretty cool, and potentially has some really cool use cases that are undiscovered!
 
