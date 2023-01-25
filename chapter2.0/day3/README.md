@@ -54,6 +54,18 @@ In the example above, we did a few things:
 2. Looked inside the public account for a contract named "ExampleNFT" that implements the `NonFungibleToken` contract interface
 3. Accessed the `totalSupply` on the `NonFungibleToken` reference and returned it
 
+Now, let's abstract this script a little bit for any account and any contract that implements the `NonFungibleToken` standard:
+
+```cadence
+import NonFungibleToken from 0x02
+
+pub fun main(contractAddress: Address, contractName: String): UInt64 {
+  let account: PublicAccount = getAccount(contractAddress)
+  let borrowedContract = account.contracts.borrow<&NonFungibleToken>(name: contractName) ?? panic("contract not found")
+  return borrowedContract.totalSupply
+}
+```
+
 ## Quests
 
 1. Define your own contract interface and a contract that implements it. Inside the contract, have one function that mutates data and one function that reads that data.
