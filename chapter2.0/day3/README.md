@@ -66,6 +66,8 @@ pub fun main(contractAddress: Address, contractName: String): UInt64 {
 }
 ```
 
+So, instead of having to generate a new script with new imports every time you want to get the total supply of an NFT contract, you an use the above borrowing method so you never have to change the Cadence code.
+
 ## Quests
 
 1. Define your own contract interface and a contract that implements it. Inside the contract, have one function that mutates data and one function that reads that data.
