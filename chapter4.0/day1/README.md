@@ -44,7 +44,11 @@ pub contract Profiles {
       self.profiles[address] == nil: "A Profile already exists for your address."
     }
     let profile: @Profile <- create Profile(address, name)
-    self.profiles[address] <- profile
+    self.profiles[address] <-! profile
+  }
+  
+  init() {
+    self.profiles <- {}
   }
 }
 ```
