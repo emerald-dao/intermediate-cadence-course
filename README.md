@@ -46,7 +46,7 @@ Quests are like homework assignments. There are quests for every day of content.
 
 ## 🙋 How to Submit Quests
 
-When you finish a quest, please store all your quests together. Then, when you want them to be reviewed, submit them in the #quest-submissions channel inside the [Emerald Academy Discord](https://discord.gg/wjA875sMjV) and our instructors will review them.
+When you finish a quest, please store all your quests together. Then, when you want them to be reviewed, submit them in the #quest-submissions channel inside the [Emerald City Discord](https://discord.gg/emeraldcity) and our instructors will review them.
 
 ## 🇺🇸 Multilingual Support
 
@@ -60,7 +60,7 @@ You can start the first day [here](https://github.com/emerald-dao/intermediate-c
 
 ## 💚 Emerald Academy
 
-This course was created by <a href="https://academy.ecdao.org" target="_blank">Emerald Academy</a>, which is a series of educational resources & bootcamps created by your *best* friends at <a href="https://ecdao.org/" target="_blank">Emerald City</a>. If you're interested in more educational content or getting involved in the broader Emerald Academy community, come join our <a href="https://discord.gg/wjA875sMjV" target="_blank">Discord</a> :)
+This course was created by <a href="https://academy.ecdao.org" target="_blank">Emerald Academy</a>, which is a series of educational resources & bootcamps created by your *best* friends at <a href="https://ecdao.org/" target="_blank">Emerald City</a>. If you're interested in more educational content or getting involved in the broader Emerald Academy community, come join our <a href="https://discord.gg/emeraldcity" target="_blank">Discord</a> :)
 
 ## 🏁 Ending Remarks
 
